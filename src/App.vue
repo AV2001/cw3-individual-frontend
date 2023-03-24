@@ -182,7 +182,7 @@ export default {
         };
     },
     created() {
-        fetch('http://localhost:3000/collection/lessons')
+        fetch('https://cw3-individual-backend.herokuapp.com/collection/lessons')
             .then(response => response.json())
             .then(data => (this.fetchedLessons = data))
             .catch(error => console.log(error));
@@ -216,22 +216,28 @@ export default {
                 };
 
                 // Fetch 'POST' requst to send an order to the backend.
-                fetch('http://localhost:3000/collection/orders', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(order),
-                });
+                fetch(
+                    'https://cw3-individual-backend.herokuapp.com/collection/orders',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(order),
+                    }
+                );
 
                 // Fetch 'PUT' request to update the spaces of a lesson.
-                fetch('http://localhost:3000/collection/lessons', {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(this.cartItems),
-                });
+                fetch(
+                    'https://cw3-individual-backend.herokuapp.com/collection/lessons',
+                    {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(this.cartItems),
+                    }
+                );
             }
             alert(message);
             // resets the full name, phone number, and the cart
